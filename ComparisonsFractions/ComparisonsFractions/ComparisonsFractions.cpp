@@ -1,12 +1,12 @@
-﻿#include <iostream>
+#include <iostream>
 
 class Fraction {
 private:
 	int numerator_;
 	int denominator_;
 
-	int numerator;
-	int denominator;
+	int ValNum;
+	int ValDenom;
 
 
 public:
@@ -16,29 +16,39 @@ public:
 	}
 
 	bool operator==(Fraction other) {
-		numerator = numerator_ * other.denominator_;
-		denominator = other.numerator_ * denominator_;
-		return numerator == denominator;
+		ValNum = numerator_ * other.denominator_;
+		ValDenom = other.numerator_ * denominator_;
+		return ValNum == ValDenom;
 	}
 
 	bool operator!=(Fraction other) {
-		return numerator != denominator;
+		ValNum = numerator_ * other.denominator_;
+		ValDenom = other.numerator_ * denominator_;
+		return ValNum != ValDenom;
 	}
 
 	bool operator<(Fraction other) {
-		return numerator < denominator;
+		ValNum = numerator_ * other.denominator_;
+		ValDenom = other.numerator_ * denominator_;
+		return ValNum < ValDenom;
 	}
 
 	bool operator>(Fraction other) {
-		return numerator > denominator;
+		ValNum = numerator_ * other.denominator_;
+		ValDenom = other.numerator_ * denominator_;
+		return ValNum > ValDenom;
 	}
 
 	bool operator<=(Fraction other) {
-		return numerator <= denominator;
+		ValNum = numerator_ * other.denominator_;
+		ValDenom = other.numerator_ * denominator_;
+		return ValNum <= ValDenom;
 	}
 
 	bool operator>=(Fraction other) {
-		return numerator >= denominator;
+		ValNum = numerator_ * other.denominator_;
+		ValDenom = other.numerator_ * denominator_;
+		return ValNum >= ValDenom;
 	}
 };
 
@@ -48,12 +58,12 @@ int main() {
 	Fraction f1(1, 3);
 	Fraction f2(1, 6);
 
-	std::cout << "f1" << ((f1 == f2) ? " == " : " not == ") << "f2" << '\n';
 	std::cout << "f1" << ((f1 != f2) ? " != " : " not != ") << "f2" << '\n';
 	std::cout << "f1" << ((f1 < f2) ? " < " : " not < ") << "f2" << '\n';
 	std::cout << "f1" << ((f1 > f2) ? " > " : " not > ") << "f2" << '\n';
 	std::cout << "f1" << ((f1 <= f2) ? " <= " : " not <= ") << "f2" << '\n';
 	std::cout << "f1" << ((f1 >= f2) ? " >= " : " not >= ") << "f2" << '\n';
+	std::cout << "f1" << ((f1 == f2) ? " == " : " not == ") << "f2" << '\n';
 
 	return 0;
 }

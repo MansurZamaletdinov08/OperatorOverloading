@@ -1,47 +1,52 @@
 ﻿#include <iostream>
 
-class Fraction
-{
+class Fraction {
 private:
 	int numerator_;
 	int denominator_;
 
+	int numerator;
+	int denominator;
+
+
 public:
-	double Abs() {
-		return numerator_ * denominator_;
-	}
-
-
-	Fraction(int numerator, int denominator)
-	{
+	Fraction(int numerator, int denominator) {
 		numerator_ = numerator;
 		denominator_ = denominator;
 	}
 
 	bool operator==(Fraction other) {
-		return Abs() == other.Abs();
+		numerator = numerator_ * other.denominator_;
+		denominator = other.numerator_ * denominator_;
+		return numerator == denominator;
 	}
+
 	bool operator!=(Fraction other) {
-		return !(*this == other);
+		return numerator != denominator;
 	}
-	bool operator>(Fraction other) {
-		return Abs() < other.Abs();
-	}
+
 	bool operator<(Fraction other) {
-		return other > *this;
+		return numerator < denominator;
 	}
-	bool operator>=(Fraction other) {
-		return !(*this < other);
+
+	bool operator>(Fraction other) {
+		return numerator > denominator;
 	}
+
 	bool operator<=(Fraction other) {
-		return !(*this > other);
+		return numerator <= denominator;
+	}
+
+	bool operator>=(Fraction other) {
+		return numerator >= denominator;
 	}
 };
 
-int main()
-{
-	Fraction f1(4, 3);
-	Fraction f2(6, 11);
+int main() {
+	setlocale(LC_ALL, "Ru");
+
+	Fraction f1(1, 3);
+	Fraction f2(1, 6);
 
 	std::cout << "f1" << ((f1 == f2) ? " == " : " not == ") << "f2" << '\n';
 	std::cout << "f1" << ((f1 != f2) ? " != " : " not != ") << "f2" << '\n';
@@ -49,63 +54,6 @@ int main()
 	std::cout << "f1" << ((f1 > f2) ? " > " : " not > ") << "f2" << '\n';
 	std::cout << "f1" << ((f1 <= f2) ? " <= " : " not <= ") << "f2" << '\n';
 	std::cout << "f1" << ((f1 >= f2) ? " >= " : " not >= ") << "f2" << '\n';
+
 	return 0;
 }
-
-
-
-/*
-#include <iostream>
-
-class Fraction
-{
-private:
-	int numerator_;
-	int denominator_;
-
-public:
-	double Abs() {
-		return numerator_ * denominator_;
-	}
-
-
-	Fraction(int numerator, int denominator)
-	{
-		numerator_ = numerator;
-		denominator_ = denominator;
-	}
-
-	bool operator==(Fraction other) {
-		return Abs() == other.Abs();
-	}
-	bool operator!=(Fraction other) {
-		return !(*this == other);
-	}
-	bool operator>(Fraction other) {
-		return Abs() < other.Abs();
-	}
-	bool operator<(Fraction other) {
-		return other > *this;
-	}
-	bool operator>=(Fraction other) {
-		return !(*this < other);
-	}
-	bool operator<=(Fraction other) {
-		return !(*this > other);
-	}
-};
-
-int main()
-{
-	Fraction f1(4, 3);
-	Fraction f2(6, 11);
-
-	std::cout << "f1" << ((f1 == f2) ? " == " : " not == ") << "f2" << '\n';
-	std::cout << "f1" << ((f1 != f2) ? " != " : " not != ") << "f2" << '\n';
-	std::cout << "f1" << ((f1 < f2) ? " < " : " not < ") << "f2" << '\n';
-	std::cout << "f1" << ((f1 > f2) ? " > " : " not > ") << "f2" << '\n';
-	std::cout << "f1" << ((f1 <= f2) ? " <= " : " not <= ") << "f2" << '\n';
-	std::cout << "f1" << ((f1 >= f2) ? " >= " : " not >= ") << "f2" << '\n';
-	return 0;
-}
-*/
